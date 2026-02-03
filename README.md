@@ -27,8 +27,8 @@ SOLPRISM lets AI agents publish **verifiable proofs of their reasoning** on Sola
 |-----------|--------|-------------|
 | **Solana Program** | ✅ Deployed | Anchor program on devnet |
 | **TypeScript SDK** | ✅ Complete | `SolprismClient` — commit, reveal, verify |
-| **Explorer Frontend** | ✅ Live | Browse agents, commitments, verify reasoning |
-| **Demo Traces** | ✅ 5 onchain | Trade, audit, rebalance, governance, decision |
+| **Explorer Frontend** | ✅ Live | [solprism.app](https://www.solprism.app/) — browse agents, commitments, verify reasoning |
+| **Demo Traces** | ✅ 300+ onchain | Agents committing verifiable reasoning on devnet |
 | **Submission Video** | 🔨 Remotion | Programmatic video from React components |
 
 **Program ID:** `CZcvoryaQNrtZ3qb3gC1h9opcYpzEP1D9Mu1RVwFQeBu`
@@ -38,6 +38,8 @@ SOLPRISM lets AI agents publish **verifiable proofs of their reasoning** on Sola
 The SOLPRISM Explorer reads directly from the program on Solana devnet — zero backend.
 
 **Pages:**
+🌐 **Live at [solprism.app](https://www.solprism.app/)** — no wallet needed, just open and explore.
+
 - **Dashboard** — live stats (agents, commitments, reveal rate)
 - **Agents** — registered agents with accountability scores
 - **Agent Detail** — profile + commitment history
@@ -45,8 +47,8 @@ The SOLPRISM Explorer reads directly from the program on Solana devnet — zero 
 - **Verify** — paste reasoning JSON, verify against onchain hash
 
 ```bash
+# Or run locally:
 cd explorer && npm install && npm run dev
-# → http://localhost:3000
 ```
 
 ## SDK Quick Start
