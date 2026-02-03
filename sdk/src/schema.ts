@@ -1,5 +1,5 @@
 /**
- * AXIOM Protocol — Schema Helpers
+ * SOLPRISM Protocol — Schema Helpers
  * 
  * Convenience functions for creating valid reasoning traces.
  */
@@ -9,7 +9,7 @@ import {
   ActionType,
   DataSource,
   Alternative,
-  AXIOM_SCHEMA_VERSION,
+  SOLPRISM_SCHEMA_VERSION,
 } from "./types";
 import { validateTrace } from "./hash";
 
@@ -55,7 +55,7 @@ export interface CreateTraceInput {
  */
 export function createReasoningTrace(input: CreateTraceInput): ReasoningTrace {
   const trace: ReasoningTrace = {
-    version: AXIOM_SCHEMA_VERSION,
+    version: SOLPRISM_SCHEMA_VERSION,
     agent: input.agent,
     timestamp: input.timestamp ?? Date.now(),
     action: {

@@ -1,7 +1,7 @@
 {
-  "name": "@axiom-protocol/sdk",
+  "name": "@solprism/sdk",
   "version": "0.1.0",
-  "description": "TypeScript SDK for AXIOM Protocol — verifiable AI reasoning on Solana",
+  "description": "TypeScript SDK for SOLPRISM — verifiable AI reasoning on Solana",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

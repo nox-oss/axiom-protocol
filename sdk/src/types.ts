@@ -1,12 +1,12 @@
 /**
- * AXIOM Protocol — Type Definitions
+ * SOLPRISM Protocol — Type Definitions
  * 
  * Core types for verifiable AI reasoning on Solana.
  */
 
 // ─── Reasoning Trace Schema ────────────────────────────────────────────────
 
-export const AXIOM_SCHEMA_VERSION = "1.0.0" as const;
+export const SOLPRISM_SCHEMA_VERSION = "1.0.0" as const;
 
 /** Supported action types for reasoning traces */
 export type ActionType = 
@@ -42,13 +42,13 @@ export interface Alternative {
 /**
  * A structured reasoning trace produced by an AI agent.
  * 
- * This is the core data structure of AXIOM. It captures the full
+ * This is the core data structure of SOLPRISM. It captures the full
  * chain of reasoning that led to an agent's decision, in a format
  * that can be hashed, committed on-chain, and later verified.
  */
 export interface ReasoningTrace {
   /** Schema version (for forward compatibility) */
-  version: typeof AXIOM_SCHEMA_VERSION;
+  version: typeof SOLPRISM_SCHEMA_VERSION;
   
   /** Agent identifier (name, address, or DID) */
   agent: string;
@@ -145,11 +145,11 @@ export interface OnChainAgentProfile {
 
 // ─── SDK Types ─────────────────────────────────────────────────────────────
 
-/** Configuration for AXIOM SDK client */
+/** Configuration for SOLPRISM SDK client */
 export interface AxiomConfig {
   /** Solana RPC endpoint URL */
   rpcUrl?: string;
-  /** AXIOM program ID on-chain */
+  /** SOLPRISM program ID on-chain */
   programId?: string;
   /** IPFS gateway URL for storing/retrieving reasoning traces */
   ipfsGateway?: string;

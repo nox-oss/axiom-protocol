@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("AxioMvAR1a1ArhEn7Fogy6cFHeRZ5Ucy4bFoXQVZ8888");
+declare_id!("CZcvoryaQNrtZ3qb3gC1h9opcYpzEP1D9Mu1RVwFQeBu");
 
 /// AXIOM Protocol — Verifiable AI Reasoning on Solana
 /// 
@@ -45,13 +45,19 @@ pub mod axiom {
         require!(action_type.len() <= 32, AxiomError::ActionTypeTooLong);
         require!(confidence <= 100, AxiomError::InvalidConfidence);
         
+        // Capture keys before mutable borrows
+        let agent_key = ctx.accounts.agent_profile.key();
+        let commitment_key = ctx.accounts.commitment.key();
+        let authority_key = ctx.accounts.authority.key();
+        let now = Clock::get()?.unix_timestamp;
+        
         let commitment = &mut ctx.accounts.commitment;
-        commitment.agent = ctx.accounts.agent_profile.key();
-        commitment.authority = ctx.accounts.authority.key();
+        commitment.agent = agent_key;
+        commitment.authority = authority_key;
         commitment.commitment_hash = commitment_hash;
-        commitment.action_type = action_type;
+        commitment.action_type = action_type.clone();
         commitment.confidence = confidence;
-        commitment.timestamp = Clock::get()?.unix_timestamp;
+        commitment.timestamp = now;
         commitment.revealed = false;
         commitment.reasoning_uri = String::new();
         commitment.nonce = nonce;
@@ -63,11 +69,11 @@ pub mod axiom {
             .ok_or(AxiomError::Overflow)?;
         
         emit!(ReasoningCommitted {
-            agent: ctx.accounts.agent_profile.key(),
-            commitment: ctx.accounts.commitment.key(),
-            action_type: commitment.action_type.clone(),
+            agent: agent_key,
+            commitment: commitment_key,
+            action_type,
             confidence,
-            timestamp: commitment.timestamp,
+            timestamp: now,
         });
         
         Ok(())

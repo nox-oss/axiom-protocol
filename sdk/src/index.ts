@@ -1,11 +1,11 @@
 /**
- * AXIOM Protocol SDK
+ * SOLPRISM Protocol SDK
  * 
  * Verifiable AI Reasoning on Solana.
  * 
  * @example
  * ```typescript
- * import { Axiom, createReasoningTrace } from '@axiom-protocol/sdk';
+ * import { Axiom, createReasoningTrace } from '@solprism/sdk';
  * 
  * const axiom = new Axiom({ rpcUrl: 'https://api.devnet.solana.com' });
  * 
@@ -48,7 +48,7 @@ export type {
   VerifyResult,
 } from "./types";
 
-export { AXIOM_SCHEMA_VERSION } from "./types";
+export { SOLPRISM_SCHEMA_VERSION } from "./types";
 
 // Re-export hashing utilities
 export {

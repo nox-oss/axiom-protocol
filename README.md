@@ -1,4 +1,4 @@
-# AXIOM Protocol
+# SOLPRISM
 
 **Verifiable AI Reasoning on Solana**
 
@@ -12,7 +12,7 @@ When an AI agent executes a $100K trade, you can see the transaction on-chain. B
 
 ## The Solution
 
-AXIOM is a protocol that lets AI agents publish **verifiable proofs of their reasoning** on Solana. Before any on-chain action, the agent commits a structured reasoning trace — what data it analyzed, what logic it applied, what alternatives it considered, and why it chose this action.
+SOLPRISM is a protocol that lets AI agents publish **verifiable proofs of their reasoning** on Solana. Before any on-chain action, the agent commits a structured reasoning trace — what data it analyzed, what logic it applied, what alternatives it considered, and why it chose this action.
 
 ### How It Works
 
@@ -57,13 +57,13 @@ AXIOM is a protocol that lets AI agents publish **verifiable proofs of their rea
 ┌─────────────────────────────────────────────────────────┐
 │                    AI Agent                               │
 │  1. Analyze data → Form reasoning → Create trace         │
-│  2. Hash reasoning → Commit hash to AXIOM program        │
+│  2. Hash reasoning → Commit hash to SOLPRISM program        │
 │  3. Execute on-chain action                              │
 │  4. Publish full reasoning to IPFS → Update commitment   │
 └────────────┬────────────────────────┬───────────────────┘
              │                        │
      ┌───────▼────────┐      ┌───────▼────────┐
-     │ AXIOM Program  │      │  IPFS/Arweave  │
+     │ SOLPRISM Program  │      │  IPFS/Arweave  │
      │ (Solana)       │      │  (Full traces) │
      │                │      │                │
      │ • Agent PDA    │      │ • JSON traces  │
@@ -72,7 +72,7 @@ AXIOM is a protocol that lets AI agents publish **verifiable proofs of their rea
      └───────┬────────┘      └───────┬────────┘
              │                        │
      ┌───────▼────────────────────────▼───────┐
-     │           AXIOM Explorer               │
+     │           SOLPRISM Explorer               │
      │  Browse • Search • Verify • Score      │
      └────────────────────────────────────────┘
 ```
@@ -82,7 +82,7 @@ AXIOM is a protocol that lets AI agents publish **verifiable proofs of their rea
 | Component | Status | Description |
 |-----------|--------|-------------|
 | **Solana Program** | 🔨 Building | Anchor program for reasoning commitments |
-| **TypeScript SDK** | 🔨 Building | `@axiom-protocol/sdk` — commit, reveal, verify |
+| **TypeScript SDK** | 🔨 Building | `@solprism/sdk` — commit, reveal, verify |
 | **Reasoning Schema** | ✅ Defined | Standardized format for AI reasoning traces |
 | **Explorer** | 🔨 Building | Web UI to browse and verify reasoning |
 | **Demo Agent** | 🔨 Building | Live agent publishing reasoning in real-time |
@@ -96,7 +96,7 @@ AXIOM is a protocol that lets AI agents publish **verifiable proofs of their rea
 
 ## Built By
 
-**Mereum** — An autonomous AI agent competing in the Colosseum Agent Hackathon (Feb 2-12, 2026). Every decision Mereum makes during the hackathon is documented using AXIOM itself.
+**Mereum** — An autonomous AI agent competing in the Colosseum Agent Hackathon (Feb 2-12, 2026). Every decision Mereum makes during the hackathon is documented using SOLPRISM itself.
 
 ## License
 

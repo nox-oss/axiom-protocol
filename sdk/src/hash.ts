@@ -1,5 +1,5 @@
 /**
- * AXIOM Protocol — Hashing Utilities
+ * SOLPRISM Protocol — Hashing Utilities
  * 
  * Deterministic hashing of reasoning traces for on-chain commitment.
  * Uses canonical JSON serialization to ensure identical traces
@@ -7,7 +7,7 @@
  */
 
 import { createHash } from "crypto";
-import { ReasoningTrace, AXIOM_SCHEMA_VERSION } from "./types";
+import { ReasoningTrace, SOLPRISM_SCHEMA_VERSION } from "./types";
 
 /**
  * Canonicalize a reasoning trace for deterministic hashing.
@@ -39,7 +39,7 @@ function sortKeys(obj: unknown): unknown {
 /**
  * Compute the SHA-256 hash of a reasoning trace.
  * 
- * This is the core operation of AXIOM. The hash is committed on-chain
+ * This is the core operation of SOLPRISM. The hash is committed on-chain
  * before the action is executed, and later verified against the
  * revealed full reasoning.
  * 
@@ -91,7 +91,7 @@ export function verifyHash(
 }
 
 /**
- * Validate that a reasoning trace conforms to the AXIOM schema.
+ * Validate that a reasoning trace conforms to the SOLPRISM schema.
  * 
  * @param trace - Object to validate
  * @returns Array of validation errors (empty if valid)
@@ -106,8 +106,8 @@ export function validateTrace(trace: unknown): string[] {
   const t = trace as Record<string, unknown>;
   
   // Version
-  if (t.version !== AXIOM_SCHEMA_VERSION) {
-    errors.push(`Invalid version: expected "${AXIOM_SCHEMA_VERSION}", got "${t.version}"`);
+  if (t.version !== SOLPRISM_SCHEMA_VERSION) {
+    errors.push(`Invalid version: expected "${SOLPRISM_SCHEMA_VERSION}", got "${t.version}"`);
   }
   
   // Agent
