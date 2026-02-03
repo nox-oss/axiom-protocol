@@ -24,3 +24,5 @@ test-ledger/
 .env.*
 explorer/node_modules/
 explorer/.next/
+video/node_modules/
+video/.remotion/
