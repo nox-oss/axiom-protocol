@@ -127,7 +127,7 @@ function hashReasoning(input: string | Record<string, unknown>): {
 } {
   const obj = typeof input === "string" ? JSON.parse(input) : input;
   const canonical = JSON.stringify(sortKeys(obj));
-  const hash = createHash("sha256").update(canonical, "utf-8").digest();
+  const hash = createHash("sha256").update(canonical, "utf8").digest();
   return { hash, hex: hash.toString("hex"), canonical };
 }
 
