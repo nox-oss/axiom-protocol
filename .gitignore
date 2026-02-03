@@ -22,3 +22,5 @@ test-ledger/
 # Environment
 .env
 .env.*
+explorer/node_modules/
+explorer/.next/
