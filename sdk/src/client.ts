@@ -1,5 +1,5 @@
 /**
- * SOLPRISM Protocol — On-Chain Client
+ * SOLPRISM Protocol — Onchain Client
  *
  * Connects the TypeScript SDK to the deployed SOLPRISM Anchor program.
  * Handles agent registration, reasoning commitment, reveal, and verification.
@@ -318,7 +318,7 @@ export function deserializeCommitment(data: Buffer): OnChainCommitment {
 /**
  * SOLPRISM Protocol Client
  *
- * High-level interface for interacting with the SOLPRISM on-chain program.
+ * High-level interface for interacting with the SOLPRISM onchain program.
  *
  * @example
  * ```typescript
@@ -388,7 +388,7 @@ export class SolprismClient {
   // ─── Commit ──────────────────────────────────────────────────────────
 
   /**
-   * Commit a reasoning trace hash on-chain.
+   * Commit a reasoning trace hash onchain.
    *
    * Hashes the trace, derives the next nonce, and publishes
    * the commitment to the SOLPRISM program.
@@ -496,7 +496,7 @@ export class SolprismClient {
   // ─── Verify ──────────────────────────────────────────────────────────
 
   /**
-   * Verify that a reasoning trace matches an on-chain commitment.
+   * Verify that a reasoning trace matches an onchain commitment.
    *
    * This is the core trust operation: anyone can fetch the commitment
    * from chain, compute the hash of the provided reasoning, and
@@ -515,7 +515,7 @@ export class SolprismClient {
         ? new PublicKey(commitmentAddress)
         : commitmentAddress;
 
-    // Fetch the on-chain commitment
+    // Fetch the onchain commitment
     const commitment = await this.getCommitment(commitPubkey);
     if (!commitment) {
       return {
@@ -523,7 +523,7 @@ export class SolprismClient {
         commitment: null as unknown as OnChainCommitment,
         computedHash: hashTraceHex(trace),
         storedHash: "",
-        message: "Commitment account not found on-chain",
+        message: "Commitment account not found onchain",
       };
     }
 
@@ -540,8 +540,8 @@ export class SolprismClient {
       computedHash,
       storedHash,
       message: valid
-        ? "✅ Reasoning verified — the trace matches the on-chain commitment"
-        : "❌ Mismatch — the provided reasoning does not match the on-chain commitment",
+        ? "✅ Reasoning verified — the trace matches the onchain commitment"
+        : "❌ Mismatch — the provided reasoning does not match the onchain commitment",
     };
   }
 
@@ -637,7 +637,7 @@ export class SolprismClient {
    * Full commit-and-reveal flow in one call.
    *
    * 1. Hashes the trace
-   * 2. Commits the hash on-chain
+   * 2. Commits the hash onchain
    * 3. Reveals with the provided URI
    *
    * @returns Both commit and reveal results

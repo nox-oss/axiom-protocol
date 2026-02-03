@@ -44,7 +44,7 @@ export interface Alternative {
  * 
  * This is the core data structure of SOLPRISM. It captures the full
  * chain of reasoning that led to an agent's decision, in a format
- * that can be hashed, committed on-chain, and later verified.
+ * that can be hashed, committed onchain, and later verified.
  */
 export interface ReasoningTrace {
   /** Schema version (for forward compatibility) */
@@ -60,7 +60,7 @@ export interface ReasoningTrace {
   action: {
     type: ActionType;
     description: string;
-    /** Optional: the on-chain transaction signature this reasoning justifies */
+    /** Optional: the onchain transaction signature this reasoning justifies */
     transactionSignature?: string;
   };
   
@@ -105,9 +105,9 @@ export interface ReasoningTrace {
   };
 }
 
-// ─── On-Chain Types ────────────────────────────────────────────────────────
+// ─── Onchain Types ────────────────────────────────────────────────────────
 
-/** On-chain commitment data (mirrors the Anchor account struct) */
+/** Onchain commitment data (mirrors the Anchor account struct) */
 export interface OnChainCommitment {
   /** The agent's public key */
   agent: string;
@@ -127,7 +127,7 @@ export interface OnChainCommitment {
   bump: number;
 }
 
-/** On-chain agent profile data */
+/** Onchain agent profile data */
 export interface OnChainAgentProfile {
   /** The agent's authority (owner) public key */
   authority: string;
@@ -149,7 +149,7 @@ export interface OnChainAgentProfile {
 export interface SolprismConfig {
   /** Solana RPC endpoint URL */
   rpcUrl?: string;
-  /** SOLPRISM program ID on-chain */
+  /** SOLPRISM program ID onchain */
   programId?: string;
   /** IPFS gateway URL for storing/retrieving reasoning traces */
   ipfsGateway?: string;
@@ -179,13 +179,13 @@ export interface RevealResult {
 
 /** Result of a verify operation */
 export interface VerifyResult {
-  /** Whether the reasoning matches the on-chain commitment */
+  /** Whether the reasoning matches the onchain commitment */
   valid: boolean;
-  /** The on-chain commitment data */
+  /** The onchain commitment data */
   commitment: OnChainCommitment;
   /** The hash of the provided reasoning */
   computedHash: string;
-  /** The hash stored on-chain */
+  /** The hash stored onchain */
   storedHash: string;
   /** Human-readable explanation */
   message: string;

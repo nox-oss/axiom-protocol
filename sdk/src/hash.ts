@@ -1,7 +1,7 @@
 /**
  * SOLPRISM Protocol — Hashing Utilities
  * 
- * Deterministic hashing of reasoning traces for on-chain commitment.
+ * Deterministic hashing of reasoning traces for onchain commitment.
  * Uses canonical JSON serialization to ensure identical traces
  * always produce identical hashes.
  */
@@ -39,7 +39,7 @@ function sortKeys(obj: unknown): unknown {
 /**
  * Compute the SHA-256 hash of a reasoning trace.
  * 
- * This is the core operation of SOLPRISM. The hash is committed on-chain
+ * This is the core operation of SOLPRISM. The hash is committed onchain
  * before the action is executed, and later verified against the
  * revealed full reasoning.
  * 
@@ -67,7 +67,7 @@ export function hashTraceHex(trace: ReasoningTrace): string {
  * Verify that a reasoning trace matches a commitment hash.
  * 
  * @param trace - The revealed reasoning trace
- * @param commitmentHash - The hash stored on-chain (32 bytes or hex string)
+ * @param commitmentHash - The hash stored onchain (32 bytes or hex string)
  * @returns true if the trace matches the commitment
  */
 export function verifyHash(

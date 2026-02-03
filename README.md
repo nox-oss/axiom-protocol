@@ -2,24 +2,24 @@
 
 **Verifiable AI Reasoning on Solana**
 
-> Trust, but verify. On-chain.
+> Trust, but verify. Onchain.
 
 ## The Problem
 
 AI agents are becoming economic actors on Solana — trading tokens, managing treasuries, auditing contracts, optimizing yield. But their reasoning is a black box. You trust the agent, or you don't. There's no middle ground.
 
-When an AI agent executes a $100K trade, you can see the transaction on-chain. But you can't see *why* it made that decision. What data did it analyze? What alternatives did it consider? Why this action over others?
+When an AI agent executes a $100K trade, you can see the transaction onchain. But you can't see *why* it made that decision. What data did it analyze? What alternatives did it consider? Why this action over others?
 
 ## The Solution
 
-SOLPRISM is a protocol that lets AI agents publish **verifiable proofs of their reasoning** on Solana. Before any on-chain action, the agent commits a structured reasoning trace — what data it analyzed, what logic it applied, what alternatives it considered, and why it chose this action.
+SOLPRISM is a protocol that lets AI agents publish **verifiable proofs of their reasoning** on Solana. Before any onchain action, the agent commits a structured reasoning trace — what data it analyzed, what logic it applied, what alternatives it considered, and why it chose this action.
 
 ### How It Works
 
-1. **Commit** — Agent creates a reasoning trace and publishes its SHA-256 hash on-chain
-2. **Execute** — Agent performs the on-chain action
+1. **Commit** — Agent creates a reasoning trace and publishes its SHA-256 hash onchain
+2. **Execute** — Agent performs the onchain action
 3. **Reveal** — Agent publishes the full reasoning (IPFS/Arweave), anyone can verify it matches the hash
-4. **Verify** — On-chain verification confirms the reasoning matches the commitment
+4. **Verify** — Onchain verification confirms the reasoning matches the commitment
 
 ### What a Reasoning Trace Looks Like
 
@@ -58,7 +58,7 @@ SOLPRISM is a protocol that lets AI agents publish **verifiable proofs of their 
 │                    AI Agent                               │
 │  1. Analyze data → Form reasoning → Create trace         │
 │  2. Hash reasoning → Commit hash to SOLPRISM program        │
-│  3. Execute on-chain action                              │
+│  3. Execute onchain action                              │
 │  4. Publish full reasoning to IPFS → Update commitment   │
 └────────────┬────────────────────────┬───────────────────┘
              │                        │

@@ -18,7 +18,7 @@
  *   decision: { actionChosen: 'sell', confidence: 85, riskAssessment: 'moderate', expectedOutcome: '...' }
  * });
  * 
- * // Commit reasoning hash on-chain
+ * // Commit reasoning hash onchain
  * const commitment = await client.commitReasoning(wallet, trace);
  * 
  * // Execute your action...

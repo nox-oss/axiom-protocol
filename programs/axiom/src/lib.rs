@@ -5,7 +5,7 @@ declare_id!("CZcvoryaQNrtZ3qb3gC1h9opcYpzEP1D9Mu1RVwFQeBu");
 /// SOLPRISM — Verifiable AI Reasoning on Solana
 /// 
 /// Agents commit hashes of their reasoning before executing actions.
-/// Anyone can verify the reasoning matches the on-chain commitment.
+/// Anyone can verify the reasoning matches the onchain commitment.
 /// (Anchor module name remains "axiom" for deployment compatibility)
 #[program]
 pub mod axiom {
@@ -83,7 +83,7 @@ pub mod axiom {
     /// Reveal the full reasoning by providing its storage URI.
     /// 
     /// After the action is executed, the agent publishes the full
-    /// reasoning trace (e.g., to IPFS) and records the URI on-chain.
+    /// reasoning trace (e.g., to IPFS) and records the URI onchain.
     /// Anyone can then fetch the reasoning and verify it matches
     /// the committed hash.
     pub fn reveal_reasoning(
