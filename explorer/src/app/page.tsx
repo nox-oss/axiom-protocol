@@ -468,27 +468,45 @@ function TopAgents({
 const INTEGRATIONS = [
   {
     name: "Eliza (ai16z)",
-    desc: "AI agent framework plugin",
+    desc: "AI agent framework plugin — upstream PR open",
     url: "https://github.com/ai16z/eliza",
     icon: "🤖",
+    badge: "PR Open",
   },
   {
     name: "solana-agent-kit",
-    desc: "Solana agent toolkit",
+    desc: "Solana agent toolkit — upstream PR open",
     url: "https://github.com/sendaifun/solana-agent-kit",
     icon: "🛠",
+    badge: "PR Open",
   },
   {
     name: "MCP Server",
-    desc: "Model Context Protocol",
-    url: "https://github.com/basedmereum/axiom-protocol/tree/main/packages/mcp-server",
+    desc: "Model Context Protocol server for AI tools",
+    url: "https://github.com/NeukoAI/axiom-protocol/tree/main/integrations/mcp-server",
     icon: "🔌",
+    badge: "Live",
   },
   {
     name: "@solprism/sdk",
-    desc: "TypeScript SDK",
+    desc: "TypeScript SDK on npm — install & commit in 3 lines",
     url: "https://www.npmjs.com/package/@solprism/sdk",
     icon: "📦",
+    badge: "Published",
+  },
+  {
+    name: "Eliza Plugin",
+    desc: "Drop-in plugin for the Eliza agent framework",
+    url: "https://github.com/NeukoAI/axiom-protocol/tree/main/integrations/eliza-plugin",
+    icon: "🧩",
+    badge: "Shipped",
+  },
+  {
+    name: "Agent Kit Plugin",
+    desc: "solana-agent-kit integration package",
+    url: "https://github.com/NeukoAI/axiom-protocol/tree/main/integrations/agent-kit-plugin",
+    icon: "⚡",
+    badge: "Shipped",
   },
 ];
 
@@ -548,8 +566,8 @@ export default function TractionDashboard() {
             Verifiable AI Reasoning on Solana
           </p>
           <p className="text-sm text-slate-500 max-w-xl mx-auto">
-            Every AI agent commits a cryptographic proof of its reasoning before acting.
-            Browse, verify, and audit onchain reasoning traces in real-time.
+            Every AI agent commits a cryptographic proof of its reasoning onchain before acting.
+            Browse, verify, and audit reasoning traces in real-time across devnet &amp; mainnet.
           </p>
 
           {/* Refresh indicator */}
@@ -606,17 +624,65 @@ export default function TractionDashboard() {
           loading={loading}
         />
         <HeroStat
-          label="Avg Confidence"
-          value={stats?.avgConfidence ?? 0}
+          label="Ecosystem Integrations"
+          value={INTEGRATIONS.length}
           icon={
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
             </svg>
           }
           gradient="from-amber-500 to-orange-400"
-          sub="Agent self-reported"
-          loading={loading}
+          sub="Eliza · Agent Kit · MCP · SDK"
+          loading={false}
         />
+      </div>
+
+      {/* ─── Traction Highlights ────────────────────────────────── */}
+      <div className="relative overflow-hidden rounded-2xl border border-emerald-500/20 bg-gradient-to-r from-emerald-500/5 via-cyan-500/5 to-blue-500/5">
+        <div className="absolute inset-0 hero-grid opacity-[0.02]" />
+        <div className="relative px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg>
+            </div>
+            <div>
+              <div className="text-sm font-bold text-emerald-400 tracking-wide uppercase">
+                Protocol Traction
+              </div>
+              <div className="text-xs text-slate-400 mt-0.5">
+                Real onchain data from Solana — not mock numbers
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center gap-6 text-center">
+            <div>
+              <div className="text-2xl font-bold text-white">
+                {loading ? "..." : <AnimatedNumber target={stats?.totalAgents ?? 0} />}
+              </div>
+              <div className="text-[10px] text-slate-500 uppercase tracking-wider">Agents</div>
+            </div>
+            <div className="w-px h-8 bg-slate-700" />
+            <div>
+              <div className="text-2xl font-bold text-white">
+                {loading ? "..." : <AnimatedNumber target={stats?.totalCommitments ?? 0} />}
+              </div>
+              <div className="text-[10px] text-slate-500 uppercase tracking-wider">Traces</div>
+            </div>
+            <div className="w-px h-8 bg-slate-700" />
+            <div>
+              <div className="text-2xl font-bold text-white">{INTEGRATIONS.length}</div>
+              <div className="text-[10px] text-slate-500 uppercase tracking-wider">Integrations</div>
+            </div>
+            <div className="w-px h-8 bg-slate-700" />
+            <div>
+              <div className="text-2xl font-bold text-white">2</div>
+              <div className="text-[10px] text-slate-500 uppercase tracking-wider">Networks</div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* ─── Network Comparison ──────────────────────────────────── */}
@@ -665,11 +731,11 @@ export default function TractionDashboard() {
             </svg>
           </div>
           <div>
-            <h2 className="text-lg font-semibold">Ecosystem</h2>
-            <p className="text-xs text-slate-500">Integrations & SDK</p>
+            <h2 className="text-lg font-semibold">Ecosystem &amp; Integrations</h2>
+            <p className="text-xs text-slate-500">{INTEGRATIONS.length} integrations across major AI agent frameworks — 2 upstream PRs open</p>
           </div>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {INTEGRATIONS.map((item) => (
             <a
               key={item.name}
@@ -678,7 +744,22 @@ export default function TractionDashboard() {
               rel="noopener noreferrer"
               className="bg-[#111827]/80 border border-slate-800/60 rounded-2xl p-5 hover:border-slate-700/60 hover:bg-slate-800/30 transition-all duration-300 group"
             >
-              <div className="text-2xl mb-3">{item.icon}</div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="text-2xl">{item.icon}</div>
+                {item.badge && (
+                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold border ${
+                    item.badge === "PR Open"
+                      ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
+                      : item.badge === "Published"
+                      ? "bg-cyan-500/10 text-cyan-400 border-cyan-500/20"
+                      : item.badge === "Live"
+                      ? "bg-green-500/10 text-green-400 border-green-500/20"
+                      : "bg-blue-500/10 text-blue-400 border-blue-500/20"
+                  }`}>
+                    {item.badge}
+                  </span>
+                )}
+              </div>
               <div className="text-sm font-semibold group-hover:text-white transition-colors">
                 {item.name}
               </div>
