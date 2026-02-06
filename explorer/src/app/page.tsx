@@ -520,10 +520,20 @@ export default function TractionDashboard() {
 
   const fetchData = useCallback(async () => {
     try {
-      const data = await fetchTractionStats();
+      // Use cached API endpoint to avoid RPC rate limits
+      const res = await fetch("/api/stats");
+      if (!res.ok) throw new Error(`API error: ${res.status}`);
+      const data = await res.json();
       setStats(data);
     } catch (e) {
       console.error("Failed to fetch traction stats:", e);
+      // Fallback to direct fetch if API fails
+      try {
+        const data = await fetchTractionStats();
+        setStats(data);
+      } catch (fallbackErr) {
+        console.error("Fallback also failed:", fallbackErr);
+      }
     } finally {
       setLoading(false);
       setLastRefresh(new Date());
